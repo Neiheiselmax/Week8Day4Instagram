@@ -1,4 +1,32 @@
 
-<div ng-repeat="images in vm.image track by $index" class="col-md-6 top">
-<h1><img src= {{vm.image}} </h1>
+<div ng-repeat="images in vm.image track by $index" class="col-md-4 top">
+<h1><img class="image" src= "{{images.url}}" data-toggle="modal" data-target="#myModal"> </h1>
+
+<div class="container">
+<img class="heart" ng-click="vm.changeQuantity(images,true)" src= "https://images.vexels.com/media/users/3/133693/isolated/preview/ddc2328ad1ea4a7cd2442e3609a42a25-heart-hand-drawn-cartoon-icon-8-by-vexels.png">
+<p id="likeNumber">{{images.likes}}</p>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-repeat="images in vm.image track by $index">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title" id="myModalLabel">{{images.title}}</h1>
+        <img class="heart" ng-click="vm.changeQuantity(images,true)" src= "https://images.vexels.com/media/users/3/133693/isolated/preview/ddc2328ad1ea4a7cd2442e3609a42a25-heart-hand-drawn-cartoon-icon-8-by-vexels.png">
+
+        <h1 id="likeNumber">{{images.likes}}</h1>
+      </div>
+      <div class="modal-body">
+        <img src= "{{images.url}}">
+        <h4 class="info">{{images.description}}</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
