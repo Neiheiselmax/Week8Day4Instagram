@@ -28,15 +28,27 @@
            }else{
             alert("Form Incomplete")
            }
-        }
+        },
 
-        vm.changeQuantity = function(images,upOrNot){
-            (upOrNot)
-          {
-            images.likes++;
-          }
-          vm.image = response.data.images
-          }
+        vm.likeImage = (item)=>{
+          let likeImage = API.likeImage(item._id);
+          likeImage.then(res =>{
+              item.likes = res.data.data.likes+1;
+            })
+          },
+
+
+
+       vm.getImageData = function(id){
+
+         let currentImage = API.getSingleImage(id);
+         currentImage.then(function successCallback(response){
+           vm.currentImage = response.data;
+         })
+
+       }
+
+
 
         let image = API.getImage();
         image.then(function successCallback(response){

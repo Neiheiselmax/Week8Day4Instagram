@@ -68,6 +68,9 @@ input[type=text] {
 input[type=text]:focus {
   width: 100%; }
 
+button {
+  margin-bottom: 30px; }
+
 .image {
   width: 350px;
   height: 350px;

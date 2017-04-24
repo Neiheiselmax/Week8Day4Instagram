@@ -14,15 +14,27 @@
               headers: {'X_CSRF_TOKEN': 'max'},
             })
         },
-      getImage:(image) => {
+          getImage:() => {
           return $http({
               method:"GET",
               url:"http://instagramcloneclass.herokuapp.com/images",
-              data: image,
               headers: {'X_CSRF_TOKEN': 'max'},
             })
         },
+        likeImage:(id) => {
+        return $http({
+            method:"POST",
+            url:"http://instagramcloneclass.herokuapp.com/images/vote",
+            data:{imageid:id},
+          })
+      },
+      getSingleImage:(id) => {
+        return $http({
+            method:"GET",
+            url:`http://instagramcloneclass.herokuapp.com/images/${id}`,
+      })
       }
+    }
     });
 
 })();
